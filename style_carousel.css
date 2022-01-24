@@ -45,9 +45,12 @@
     color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
     border-radius: 3rem;
+    width: 6rem;
+    height: 6rem;
     padding: 1.5rem;
-    background-color: rgba(41, 63, 98, 0.5);
+    background-color: rgba(41, 63, 98, 0.267);
     transition: 500ms;
+    backdrop-filter: blur(8px);
 
 }
 
