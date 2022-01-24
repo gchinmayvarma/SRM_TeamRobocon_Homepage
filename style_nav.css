@@ -1,0 +1,217 @@
+@import url('http://fonts.cdnfonts.com/css/planet-kosmos');
+.logo {
+    /* background-color: rgb(50, 50, 50); */
+    width: 100%;
+}
+
+.logogif {
+    /* box-sizing: border-box; */
+    position: absolute;
+    /* top: 0; */
+    /* left: 0; */
+    width: 100%;
+    /* filter:hue-rotate(60deg); */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    transform: translate(-15%,-25%);
+}
+
+.logotext {
+    position: absolute;
+    color: var(--color);
+    /* font-size: min(4vw, 20px); */
+    flex-direction: column;
+    left: 70px;
+    top: 160px;
+    margin-bottom: 0px;
+    font-family: 'Planet Kosmos', sans-serif;
+    font-weight: 100;
+    color: rgba(255,255,255,1);
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: rgb(0,0,0);
+    font-size: 30px; 
+}
+
+.logotextright {
+    font-size: min(1.6vw, 10px);
+    margin-top: 0px;
+    margin-left: min(3vw, 1px);
+}
+
+.stack {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.stack span {
+    font-weight: bold;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    /* font-size: 50%; */
+    --stack-height: calc(100% / var(--stacks) - 1px);
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 340ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+}
+
+.stack span:nth-child(odd) {
+    --glitch-translate: 8px;
+}
+
+.stack span:nth-child(even) {
+    --glitch-translate: -8px;
+}
+
+@keyframes stack {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+        text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    }
+
+    ;
+
+    60% {
+        opacity: 0.5;
+        transform: translateX(50%);
+    }
+
+    80% {
+        transform: none;
+        opacity: 1;
+        text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+
+    100% {
+        text-shadow: none;
+    }
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+        transform: translate(var(--glitch-translate));
+    }
+
+    2% {
+        text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+
+    4%,
+    100% {
+        text-shadow: none;
+        transform: none;
+    }
+}
+
+#menuToggle {
+    display: block;
+    position: fixed;
+    top: 35px;
+    left: 25px;
+    z-index: 6;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+    color: rgb(170, 202, 238);
+}
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 7;
+    -webkit-touch-callout: none;
+}
+
+#menuToggle .burger {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 6;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
+}
+
+#menuToggle .burger:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle .burger:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked~.burger {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #ffffff;
+}
+
+#menuToggle input:checked~.burger:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked~.burger:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+    position: fixed;
+    width: 320px;
+    height: 110vh;
+
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background: #1b252e93;
+    backdrop-filter: blur(10px);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+    font-family: 'Dongle', sans-serif;
+    text-align: center;
+
+    padding: 5px ;
+    /* padding-left: 5px ; */
+    font-size: 30px;
+}
+
+#menuToggle input:checked~ul {
+    transform: none;
+}
+.collegelogo{
+    width: 100px; 
+    margin-left: 50%; 
+    transform: translate(-50%,0);
+}

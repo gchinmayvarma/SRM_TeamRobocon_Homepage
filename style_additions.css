@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap');
+
+.backgroundvideo {
+    width: 100%;
+    /* position: absolute; */
+}
+
+.gotoabout {
+    width:60px;
+    height:60px;
+    font-size: 30px;
+    border-radius: 50%;
+    color: white;
+    background-color : rgba(255, 255, 255, 0.048);
+    backdrop-filter: blur(10px);
+    border: none;
+    cursor: pointer;
+}
+
+.fronttitletext {
+    height: 100vh;
+}
+
+.fronttitletexttext {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 100px;
+    text-align: center;
+    z-index: 2;
+    color: #ffffff;
+    font-family: 'Dongle', sans-serif;
+    -webkit-animation: 12500ms ease 0s normal forwards 1 animation_fronttitle;
+    animation: 12500ms ease 0s normal forwards 1 animation_fronttitle;
+}
+.fronttitletexttitle{
+    font-family: 'Planet Kosmos', sans-serif;
+}
+.fronttitletexttitle2{
+    font-size: 150px;
+}
+@keyframes animation_fronttitle {
+    0% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes animation_fronttitle {
+    0% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
