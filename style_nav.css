@@ -1,7 +1,7 @@
 /* @import url('./PLANK___'); */
 @font-face {
     font-family: 'Planet Kosmos';
-    src: url("/content/PLANK___.TTF") format('truetype');;
+    src: url("font.TTF") format('truetype');;
 }
 .logo {
     /* background-color: rgb(50, 50, 50); */
